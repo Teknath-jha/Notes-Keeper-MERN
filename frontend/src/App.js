@@ -7,6 +7,7 @@ import RegisterPage from "./screens/RegisterScreen/RegisterScreen";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MyNotes from "./screens/MyNotes/MyNotes";
 import CreateNote from "./screens/CreateNote/CreateNote";
+import SingleNote from "./screens/SingleNote/SingleNote";
 
 const App = () => (
   <BrowserRouter>
@@ -17,6 +18,7 @@ const App = () => (
         <Route path="/login" element={<LoginScreen />} exact />
         <Route path="/register" element={<RegisterPage />} exact />
         <Route path="/createnote" element={<CreateNote />} exact />
+        <Route path="/note/:id" element={<SingleNote  />} exact />
         <Route path="/mynotes" element={<MyNotes />} />
       </Routes>
     </main>
