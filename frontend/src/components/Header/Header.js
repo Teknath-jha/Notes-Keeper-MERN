@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import "./Header.css";
 import {
   Nav,
   NavDropdown,
@@ -10,7 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../actions/userActions";
 
-const Header = ({setSearch}) => {
+const Header = ({ setSearch }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -22,6 +24,12 @@ const Header = ({setSearch}) => {
     dispatch(logout);
     navigate("/");
   };
+
+  useEffect(() => {
+    if (userInfo) {
+      console.log(userInfo);
+    }
+  }, [userInfo]);
 
   return (
     <Navbar bg="primary" expand="lg" variant="dark">
@@ -37,23 +45,36 @@ const Header = ({setSearch}) => {
                 type="text"
                 placeholder="Search"
                 className="mr-sm-2"
-                onChange={(e)=>setSearch(e.target.value)}
+                onChange={(e) => setSearch(e.target.value)}
               />
             </Form>
           </Nav>
 
-          <Nav>
-            <Nav.Link>
-              <Link to="/mynotes">My Notes</Link>
-            </Nav.Link>
-            <NavDropdown title="Teknath Jha" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">MyProfile</NavDropdown.Item>
+          {userInfo ? (
+            <Nav>
+              <Nav.Link>
+                <Link to="/mynotes">My Notes</Link>
+              </Nav.Link>
+              <img
+                src={userInfo.pic}
+                alt={userInfo.name}
+                className="profilePic"
+              />
+              <NavDropdown title={userInfo?.name} id="basic-nav-dropdown">
+                <NavDropdown.Item href="/profile">MyProfile</NavDropdown.Item>
 
-              <NavDropdown.Item onClick={logoutHandler}>
-                Logout
-              </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
+                <NavDropdown.Item onClick={logoutHandler}>
+                  Logout
+                </NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+          ) : (
+            <Nav>
+              <Nav.Link>
+                <Link to="/login">Login</Link>
+              </Nav.Link>
+            </Nav>
+          )}
         </Navbar.Collapse>
       </Container>
     </Navbar>
