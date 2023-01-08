@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import "./Header.css";
 import {
   Nav,
   NavDropdown,
@@ -27,7 +26,6 @@ const Header = ({ setSearch }) => {
 
   useEffect(() => {
     if (userInfo) {
-      console.log(userInfo);
     }
   }, [userInfo]);
 
@@ -52,11 +50,7 @@ const Header = ({ setSearch }) => {
 
           {userInfo ? (
             <Nav>
-              {/* <img
-                src={userInfo.pic}
-                alt={userInfo.name}
-                className="profilePic"
-              /> */}
+              
               <Nav.Link>
                 <Link to="/mynotes">My Notes</Link>
               </Nav.Link>
