@@ -34,9 +34,9 @@ app.use("/api/notes", noteRoutes);
 app.use(errorHandler);
 app.use(notFound);
 
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"));
+// });
 
 const PORT = process.env.PORT || 3000;
 
