@@ -52,14 +52,15 @@ const Header = ({ setSearch }) => {
 
           {userInfo ? (
             <Nav>
-              <Nav.Link>
-                <Link to="/mynotes">My Notes</Link>
-              </Nav.Link>
-              <img
+              {/* <img
                 src={userInfo.pic}
                 alt={userInfo.name}
                 className="profilePic"
-              />
+              /> */}
+              <Nav.Link>
+                <Link to="/mynotes">My Notes</Link>
+              </Nav.Link>
+
               <NavDropdown title={userInfo?.name} id="basic-nav-dropdown">
                 <NavDropdown.Item href="/profile">MyProfile</NavDropdown.Item>
 
