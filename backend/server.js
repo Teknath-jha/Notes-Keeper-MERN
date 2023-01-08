@@ -11,22 +11,9 @@ dotenv.config();
 connectDB();
 app.use(express.json());
 
-// app.get("/", (req, res) => {
-//   res.send("API is working");
-// });
-
-// app.get("/api/notes", (req, res) => {
-//   res.json(notes);
-// });
-
-// app.get("/api/notes/:id", (req, res) => {
-//   const note = notes.find((x) => x._id === req.params.id);
-//   if (note) {
-//     res.send(note);
-//   } else {
-//     res.send(`Note does not exists with id : ${req.params.id} `);
-//   }
-// });
+app.get("/", (req, res) => {
+  res.send("API is working");
+});
 
 app.use("/api/users", userRoutes);
 app.use("/api/notes", noteRoutes);
