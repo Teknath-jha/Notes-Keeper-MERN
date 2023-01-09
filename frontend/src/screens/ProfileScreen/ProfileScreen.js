@@ -124,7 +124,7 @@ const ProfileScreen = () => {
               {picMessage && (
                 <ErrorMessage variant="danger">{picMessage}</ErrorMessage>
               )}
-              <Form.Group controlId="pic">
+              <Form.Group id="pic">
                 <Form.Label>Change Profile Picture</Form.Label>
                 <Form.Control
                   onChange={(e) => postDetails(e.target.files[0])}
@@ -133,10 +133,11 @@ const ProfileScreen = () => {
                   placeholder="Upload Profile Picture"
                   label="Upload Profile Picture"
                   custom
+                  
                 />
               </Form.Group>
 
-              <Button variant="primary" type="submit">
+              <Button variant="primary" type="submit" className="updateButton">
                 Update
               </Button>
             </Form>

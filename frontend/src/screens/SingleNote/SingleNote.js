@@ -12,6 +12,7 @@ import {
   updateNoteAction,
 } from "../../actions/notesAction";
 import axios from "axios";
+import { DeleteIcon } from "@chakra-ui/icons";
 
 const SingleNote = () => {
   const [title, setTitle] = useState();
@@ -123,7 +124,7 @@ const SingleNote = () => {
               variant="danger"
               onClick={() => deleteHandler(params.id)}
             >
-              Delete Note
+              <DeleteIcon />
             </Button>
           </Form>
         </Card.Body>

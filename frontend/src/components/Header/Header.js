@@ -33,7 +33,7 @@ const Header = ({ setSearch }) => {
     <Navbar bg="primary" expand="lg" variant="dark">
       <Container>
         <Navbar.Brand href="/">
-          <Link to="/">Note Keeper</Link>
+          <Link to="/">Note Kiper</Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-nabar-nav">

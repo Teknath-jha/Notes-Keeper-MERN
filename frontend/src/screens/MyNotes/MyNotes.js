@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteNoteAction, listNotes } from "../../actions/notesAction";
 import Loading from "../../components/Loading";
 import ErrorMessage from "../../components/ErrorMessage";
+import { EditIcon , DeleteIcon} from "@chakra-ui/icons";
 
 const MyNotes = ({ search }) => {
   const dispatch = useDispatch();
@@ -91,13 +92,15 @@ const MyNotes = ({ search }) => {
                     </Accordion.Button>
                   </span>
                   <div>
-                    <Button href={`/note/${note._id}`}>Edit</Button>
+                    <Button href={`/note/${note._id}`}>
+                      <EditIcon />
+                    </Button>
                     <Button
                       variant="danger"
                       className="mx-2"
                       onClick={() => deleteHandler(note._id)}
                     >
-                      Delete
+                      <DeleteIcon />
                     </Button>
                   </div>
                 </Card.Header>
