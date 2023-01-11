@@ -42,19 +42,15 @@ export const login = (email, password) => async (dispatch) => {
 };
 
 export const logout = () => async (dispatch) => {
+  console.log("In logout action");
   localStorage.removeItem("userInfo");
+  console.log("loggedout");
   dispatch({ type: USER_LOGOUT });
 };
 
 export const register = (name, email, password, pic) => async (dispatch) => {
   try {
     dispatch({ type: USER_REGISTER_REQUEST });
-
-    const config = {
-      headers: {
-        "Content-type": "application/json",
-      },
-    };
 
     const { data } = await axios.post("/api/users", {
       name,
